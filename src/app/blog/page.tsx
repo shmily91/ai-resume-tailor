@@ -10,17 +10,38 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "/blog/how-to-tailor-resume-job-description",
+    title: "How to Tailor Your Resume to a Job Description: Step-by-Step Guide",
+    excerpt: "The complete guide to customizing your resume for every application. Keyword strategies, ATS tricks, and what hiring managers look for.",
+    date: "June 2025",
+    readTime: "12 min",
+  },
+  {
+    slug: "/blog/cover-letter-no-experience",
+    title: "How to Write a Cover Letter With No Experience (Template + Examples)",
+    excerpt: "Templates, examples, and strategies to write a compelling cover letter — even if you've never held a job before.",
+    date: "June 2025",
+    readTime: "10 min",
+  },
+  {
+    slug: "/blog/resume-summary-vs-objective",
+    title: "Resume Summary vs Objective: Which One Should You Use in 2025?",
+    excerpt: "The definitive guide to choosing between a summary and objective — with examples for every career stage.",
+    date: "June 2025",
+    readTime: "8 min",
+  },
+  {
     slug: "/blog/ats-friendly-resume",
-    title: "How to Write an ATS-Friendly Resume in 2026",
+    title: "How to Write an ATS-Friendly Resume in 2025",
     excerpt: "98% of Fortune 500 companies use ATS. Learn how to format, keyword-optimize, and structure your resume to pass automated screening.",
-    date: "June 2026",
+    date: "June 2025",
     readTime: "8 min",
   },
   {
     slug: "/blog/tailor-resume-every-job",
     title: "Why Tailoring Your Resume Increases Interview Rates by 89%",
     excerpt: "Generic resumes are the #1 mistake. Learn why and how to tailor your resume for each job — in seconds, not hours.",
-    date: "June 2026",
+    date: "June 2025",
     readTime: "6 min",
   },
 ];

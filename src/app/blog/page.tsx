@@ -1,0 +1,74 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog — Resume Tips, ATS Guide & Career Advice | ResumeAI",
+  description: "Expert resume writing tips, ATS optimization guides, and career advice to help you land more interviews.",
+};
+
+const posts = [
+  {
+    slug: "/blog/ats-friendly-resume",
+    title: "How to Write an ATS-Friendly Resume in 2026",
+    excerpt: "98% of Fortune 500 companies use ATS. Learn how to format, keyword-optimize, and structure your resume to pass automated screening.",
+    date: "June 2026",
+    readTime: "8 min",
+  },
+  {
+    slug: "/blog/tailor-resume-every-job",
+    title: "Why Tailoring Your Resume Increases Interview Rates by 89%",
+    excerpt: "Generic resumes are the #1 mistake. Learn why and how to tailor your resume for each job — in seconds, not hours.",
+    date: "June 2026",
+    readTime: "6 min",
+  },
+];
+
+export default function BlogPage() {
+  return (
+    <>
+      <Header />
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+          Resume Tips & <span className="gradient-text">Career Advice</span>
+        </h1>
+        <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
+          Expert guides on resume writing, ATS optimization, and landing more interviews.
+        </p>
+
+        <div className="grid gap-6">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={post.slug}
+              className="block bg-card border border-card-border rounded-xl p-6 hover:border-primary/30 hover:shadow-lg transition-all group"
+            >
+              <div className="flex items-center gap-3 text-sm text-muted-foreground mb-2">
+                <span>{post.date}</span>
+                <span>•</span>
+                <span>{post.readTime} read</span>
+              </div>
+              <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                {post.title}
+              </h2>
+              <p className="text-muted-foreground text-sm">{post.excerpt}</p>
+            </Link>
+          ))}
+        </div>
+
+        <div className="mt-16 bg-primary/5 border border-primary/20 rounded-xl p-8 text-center">
+          <h2 className="text-xl font-bold mb-2">Ready to put these tips into practice?</h2>
+          <p className="text-muted-foreground mb-4">Tailor your resume to any job in 10 seconds.</p>
+          <Link
+            href="/tailor"
+            className="inline-flex items-center gap-2 bg-primary text-white font-semibold px-6 py-3 rounded-lg hover:bg-primary-dark transition-all"
+          >
+            Try ResumeAI Free →
+          </Link>
+        </div>
+      </section>
+      <Footer />
+    </>
+  );
+}

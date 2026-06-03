@@ -371,7 +371,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Link
-                  href="/tailor"
+                  href={plan.highlight ? "/pricing" : "/tailor"}
                   className={`block w-full text-center py-3 rounded-lg font-medium text-sm transition-all ${
                     plan.highlight
                       ? "bg-white text-primary hover:bg-white/90"

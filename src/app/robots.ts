@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    sitemap: "https://resume-ai-tailor.vercel.app/sitemap.xml",
+    sitemap: "https://ai-resume-tailor-taupe.vercel.app/sitemap.xml",
   };
 }

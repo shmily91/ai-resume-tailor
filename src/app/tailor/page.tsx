@@ -11,11 +11,29 @@ export default function TailorPage() {
   const [result, setResult] = useState<TailoredResume | null>(null);
   const [error, setError] = useState("");
   const [mode, setMode] = useState<"input" | "result">("input");
+  const [remaining, setRemaining] = useState<number | null>(null);
+  const [limitReached, setLimitReached] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
+
+  // Fetch usage on mount
+  useState(() => {
+    fetch("/api/tailor")
+      .then((r) => r.json())
+      .then((data) => {
+        setRemaining(data.remaining);
+        if (data.remaining <= 0) setLimitReached(true);
+      })
+      .catch(() => {});
+  });
 
   const handleTailor = async () => {
     if (!resumeText.trim() || !jobDescription.trim()) {
       setError("Please fill in both your resume and the job description.");
+      return;
+    }
+
+    if (limitReached) {
+      setError("You've reached the free limit. Upgrade to Pro for unlimited access.");
       return;
     }
 
@@ -35,8 +53,21 @@ export default function TailorPage() {
 
       const data = await response.json();
 
+      if (response.status === 429) {
+        setLimitReached(true);
+        setRemaining(0);
+        setError(data.message || "Free limit reached. Upgrade to Pro!");
+        return;
+      }
+
       if (!response.ok) {
         throw new Error(data.error || "Something went wrong");
+      }
+
+      // Update remaining count from response meta
+      if (data._meta) {
+        setRemaining(data._meta.remaining);
+        if (data._meta.remaining <= 0) setLimitReached(true);
       }
 
       setResult(data);
@@ -367,7 +398,17 @@ export default function TailorPage() {
                   <line x1="15" y1="9" x2="9" y2="15" />
                   <line x1="9" y1="9" x2="15" y2="15" />
                 </svg>
-                {error}
+                <div className="flex-1">
+                  <span>{error}</span>
+                  {limitReached && (
+                    <Link
+                      href="/#pricing"
+                      className="inline-flex items-center gap-1 mt-2 ml-2 bg-primary text-white text-xs font-medium px-3 py-1.5 rounded-lg hover:bg-primary-dark transition-colors"
+                    >
+                      Upgrade to Pro →
+                    </Link>
+                  )}
+                </div>
               </div>
             )}
 
@@ -411,7 +452,11 @@ export default function TailorPage() {
                 )}
               </button>
               <span className="text-xs text-muted-foreground">
-                Free to use • No signup required • Takes ~5 seconds
+                {remaining !== null && !limitReached
+                  ? `${remaining} free use${remaining !== 1 ? "s" : ""} remaining this month • No signup required`
+                  : limitReached
+                  ? "Free limit reached — Upgrade to Pro for unlimited"
+                  : "Free to use • No signup required"}
               </span>
             </div>
           </div>

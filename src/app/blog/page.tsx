@@ -100,6 +100,13 @@ const posts = [
     date: "June 2025",
     readTime: "12 min",
   },
+  {
+    slug: "/blog/how-to-write-resume-experience",
+    title: "How to Write Resume Experience Section (2026 Complete Guide)",
+    excerpt: "Master the work experience section of your resume. Learn how to describe your achievements, quantify results, and impress recruiters.",
+    date: "June 2025",
+    readTime: "14 min",
+  },
 ];
 
 export default function BlogPage() {

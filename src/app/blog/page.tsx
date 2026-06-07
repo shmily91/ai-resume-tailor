@@ -93,6 +93,13 @@ const posts = [
     date: "June 2025",
     readTime: "13 min",
   },
+  {
+    slug: "/blog/how-to-format-resume",
+    title: "How to Format a Resume (2026 Complete Formatting Guide)",
+    excerpt: "Master resume formatting with our complete 2026 guide. Learn proper fonts, margins, spacing, and ATS-optimized layouts.",
+    date: "June 2025",
+    readTime: "12 min",
+  },
 ];
 
 export default function BlogPage() {

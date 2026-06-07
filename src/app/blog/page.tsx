@@ -79,6 +79,20 @@ const posts = [
     date: "June 2025",
     readTime: "10 min",
   },
+  {
+    slug: "/blog/how-to-list-education-on-resume",
+    title: "How to List Education on Resume (2026 Complete Guide)",
+    excerpt: "Master the education section of your resume. Learn proper formatting, what to include, and how to highlight academic achievements effectively.",
+    date: "June 2025",
+    readTime: "11 min",
+  },
+  {
+    slug: "/blog/how-to-write-resume-summary",
+    title: "How to Write a Resume Summary (2026 Complete Guide with Examples)",
+    excerpt: "Craft the perfect resume summary with our complete guide. Templates and examples for entry-level to senior professionals.",
+    date: "June 2025",
+    readTime: "13 min",
+  },
 ];
 
 export default function BlogPage() {

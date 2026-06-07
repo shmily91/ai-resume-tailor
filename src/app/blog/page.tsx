@@ -65,6 +65,20 @@ const posts = [
     date: "June 2025",
     readTime: "14 min",
   },
+  {
+    slug: "/blog/resume-power-words",
+    title: "Resume Power Words That Get Interviews (2026 Complete List)",
+    excerpt: "Transform your resume with powerful action verbs. Complete list organized by skill type with examples of how to use them effectively.",
+    date: "June 2025",
+    readTime: "12 min",
+  },
+  {
+    slug: "/blog/common-resume-mistakes",
+    title: "Common Resume Mistakes to Avoid (2026 Guide)",
+    excerpt: "Stop making these resume mistakes that kill your chances. Learn what recruiters hate and how to create an error-free resume.",
+    date: "June 2025",
+    readTime: "10 min",
+  },
 ];
 
 export default function BlogPage() {

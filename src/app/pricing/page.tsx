@@ -38,8 +38,8 @@ const plans = [
       { text: "Priority processing", included: true },
       { text: "Email support", included: true },
     ],
-    cta: "Start 7-Day Free Trial",
-    ctaLink: "https://resumeai.lemonsqueezy.com/checkout/buy/pro-monthly",
+    cta: "Email to Upgrade",
+    ctaLink: "mailto:resumeai.proton@gmail.com?subject=Pro%20Monthly%20Upgrade%20Request&body=Hi%2C%20I%20want%20to%20upgrade%20to%20Pro%20Monthly%20(%249%2Fmonth).%20Please%20send%20me%20payment%20details.",
     highlight: true,
   },
   {
@@ -57,8 +57,8 @@ const plans = [
       { text: "", included: false },
       { text: "", included: false },
     ],
-    cta: "Get Lifetime Access",
-    ctaLink: "https://resumeai.lemonsqueezy.com/checkout/buy/lifetime",
+    cta: "Email to Upgrade",
+    ctaLink: "mailto:resumeai.proton@gmail.com?subject=Lifetime%20Access%20Request&body=Hi%2C%20I%20want%20to%20purchase%20Lifetime%20Access%20(%2449%20one-time).%20Please%20send%20me%20payment%20details.",
     highlight: false,
   },
 ];

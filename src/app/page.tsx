@@ -432,6 +432,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Recommended Tools - Affiliate Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3">Recommended <span className="gradient-text">Job Search Tools</span></h2>
+            <p className="text-muted-foreground">Tools we recommend to boost your job search success.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <a href="https://www.indeed.com/?r=us" target="_blank" rel="noopener noreferrer" className="bg-card border border-card-border rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-blue-500/10 text-blue-500 flex items-center justify-center mb-4 text-xl font-bold">i</div>
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">Indeed Job Search</h3>
+              <p className="text-sm text-muted-foreground mb-3">The world&apos;s #1 job site. Search millions of jobs from thousands of job boards, newspapers, and company websites.</p>
+              <span className="text-xs text-primary font-medium">Search Jobs Free →</span>
+            </a>
+            <a href="https://www.linkedin.com/jobs/" target="_blank" rel="noopener noreferrer" className="bg-card border border-card-border rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-sky-500/10 text-sky-500 flex items-center justify-center mb-4 text-xl font-bold">in</div>
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">LinkedIn Jobs</h3>
+              <p className="text-sm text-muted-foreground mb-3">Leverage your professional network to find the right job. Apply with your LinkedIn profile and get noticed by recruiters.</p>
+              <span className="text-xs text-primary font-medium">Explore LinkedIn Jobs →</span>
+            </a>
+            <a href="https://www.glassdoor.com/index.htm" target="_blank" rel="noopener noreferrer" className="bg-card border border-card-border rounded-xl p-6 hover:shadow-lg hover:border-primary/30 transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-green-500/10 text-green-500 flex items-center justify-center mb-4 text-xl font-bold">G</div>
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">Glassdoor</h3>
+              <p className="text-sm text-muted-foreground mb-3">Research companies, read reviews, check salaries, and find the best workplace for your career goals.</p>
+              <span className="text-xs text-primary font-medium">Research Companies →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Email Collection */}
+      <section className="py-16">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-3">Get <span className="gradient-text">Resume Tips</span> Weekly</h2>
+          <p className="text-muted-foreground mb-8">Join 5,000+ job seekers getting actionable resume advice, ATS tips, and interview strategies delivered to their inbox.</p>
+          <form action="https://formsubmit.co/resumeai.proton@gmail.com" method="POST" className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+            <input type="email" name="email" placeholder="Enter your email" required className="flex-1 px-4 py-3 rounded-lg border border-card-border bg-card text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors" />
+            <input type="hidden" name="_subject" value="ResumeAI Newsletter Signup" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://ai-resume-tailor-taupe.vercel.app/?subscribed=true" />
+            <button type="submit" className="bg-primary hover:bg-primary-dark text-white font-semibold px-6 py-3 rounded-lg transition-all whitespace-nowrap">Subscribe Free</button>
+          </form>
+          <p className="text-xs text-muted-foreground mt-3">No spam. Unsubscribe anytime.</p>
+        </div>
+      </section>
+
       <Footer />
     </>
   );

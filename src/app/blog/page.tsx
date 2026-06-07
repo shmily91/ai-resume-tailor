@@ -44,6 +44,27 @@ const posts = [
     date: "June 2025",
     readTime: "6 min",
   },
+  {
+    slug: "/blog/how-to-write-skills-section-on-resume",
+    title: "How to Write Skills Section on Resume (2026 Guide)",
+    excerpt: "Master the skills section of your resume. Learn what employers want, how to list skills effectively, and optimize for ATS systems.",
+    date: "June 2025",
+    readTime: "10 min",
+  },
+  {
+    slug: "/blog/how-long-should-a-resume-be",
+    title: "How Long Should a Resume Be? (2026 Best Practice Guide)",
+    excerpt: "Discover the ideal resume length for your experience level. Learn when to use one page vs two pages and how to optimize space.",
+    date: "June 2025",
+    readTime: "12 min",
+  },
+  {
+    slug: "/blog/how-to-write-resume-with-no-experience",
+    title: "How to Write a Resume with No Experience (2026 Guide)",
+    excerpt: "Creating a resume without work experience is challenging but possible. Learn strategies to highlight education, skills, and potential.",
+    date: "June 2025",
+    readTime: "14 min",
+  },
 ];
 
 export default function BlogPage() {

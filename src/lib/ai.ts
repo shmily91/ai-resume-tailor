@@ -833,18 +833,10 @@ export async function tailorResumeAI(
   jobDescription: string,
   apiKey: string
 ): Promise<TailoredResume> {
-  const response = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      messages: [
-        {
-          role: "system",
-          content: `You are an expert resume writer and ATS optimization specialist. Your task is to tailor a resume to match a specific job description.
+  // Use Gemini API (free tier) if server GEMINI_API_KEY is set, otherwise use provided key
+  const geminiKey = process.env.GEMINI_API_KEY || apiKey;
+
+  const systemPrompt = `You are an expert resume writer and ATS optimization specialist. Your task is to tailor a resume to match a specific job description.
 
 Rules:
 1. Keep ALL truthful information from the original resume - never fabricate experience, skills, or education
@@ -878,18 +870,64 @@ Rules:
       "details": "Optional details"
     }
   ],
-  "skills": ["Skill 1", "Skill 2", ...],
+  "skills": ["Skill 1", "Skill 2"],
   "matchScore": 85,
   "keywordsAdded": ["keyword1", "keyword2"],
   "keywordsMatched": ["existing keyword1"]
 }
 
-IMPORTANT: Return ONLY valid JSON. No markdown, no code blocks.`,
-        },
-        {
-          role: "user",
-          content: `Here is my current resume:\n\n${resumeText}\n\nHere is the job description I want to apply for:\n\n${jobDescription}\n\nPlease tailor my resume for this job. Return only valid JSON.`,
-        },
+IMPORTANT: Return ONLY valid JSON. No markdown, no code blocks.`;
+
+  const userMessage = `Here is my current resume:\n\n${resumeText}\n\nHere is the job description I want to apply for:\n\n${jobDescription}\n\nPlease tailor my resume for this job. Return only valid JSON.`;
+
+  // Try Gemini API first
+  try {
+    const geminiResponse = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiKey}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: systemPrompt }] },
+          contents: [{ parts: [{ text: userMessage }] }],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 4000,
+            responseMimeType: "application/json",
+          },
+        }),
+      }
+    );
+
+    if (geminiResponse.ok) {
+      const data = await geminiResponse.json();
+      const content = data.candidates?.[0]?.content?.parts?.[0]?.text;
+      if (content) {
+        let jsonStr = content;
+        if (jsonStr.includes("```")) {
+          jsonStr = jsonStr.replace(/```(?:json)?\n?/g, "").replace(/```/g, "");
+        }
+        const result = JSON.parse(jsonStr.trim());
+        return { ...result, originalText: resumeText };
+      }
+    }
+    console.warn("Gemini API failed, falling back to OpenAI");
+  } catch (e) {
+    console.warn("Gemini API error, falling back:", e);
+  }
+
+  // Fallback: try OpenAI
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userMessage },
       ],
       temperature: 0.7,
       max_tokens: 3000,
@@ -908,7 +946,6 @@ IMPORTANT: Return ONLY valid JSON. No markdown, no code blocks.`,
     throw new Error("No content in API response");
   }
 
-  // Parse JSON from response (handle potential markdown code blocks)
   let jsonStr = content;
   if (jsonStr.includes("```")) {
     jsonStr = jsonStr.replace(/```(?:json)?\n?/g, "").replace(/```/g, "");
@@ -916,12 +953,8 @@ IMPORTANT: Return ONLY valid JSON. No markdown, no code blocks.`,
 
   try {
     const result = JSON.parse(jsonStr.trim());
-    return {
-      ...result,
-      originalText: resumeText,
-    };
+    return { ...result, originalText: resumeText };
   } catch {
-    // If JSON parsing fails, fall back to demo mode
     console.warn("Failed to parse AI response as JSON, falling back to demo mode");
     return tailorResumeDemo(resumeText, jobDescription);
   }

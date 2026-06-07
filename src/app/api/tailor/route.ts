@@ -65,9 +65,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Use server-side API key if available, otherwise use client-provided key (or demo mode)
-    const serverApiKey = process.env.OPENAI_API_KEY;
-    const effectiveApiKey = serverApiKey || apiKey || undefined;
+    // Use server-side API key if available (Gemini first, then OpenAI), otherwise use client-provided key
+    const serverGeminiKey = process.env.GEMINI_API_KEY;
+    const serverOpenAIKey = process.env.OPENAI_API_KEY;
+    const effectiveApiKey = serverGeminiKey || serverOpenAIKey || apiKey || undefined;
 
     const result = await tailorResume(resume, jobDescription, effectiveApiKey);
 

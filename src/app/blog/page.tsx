@@ -114,6 +114,13 @@ const posts = [
     date: "June 2025",
     readTime: "13 min",
   },
+  {
+    slug: "/blog/cover-letter-vs-resume",
+    title: "Cover Letter vs Resume: Key Differences (2026 Guide)",
+    excerpt: "Understand the key differences between cover letters and resumes. When to use each, what to include, and how they complement each other.",
+    date: "June 2025",
+    readTime: "16 min",
+  },
 ];
 
 export default function BlogPage() {

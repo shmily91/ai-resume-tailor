@@ -149,6 +149,27 @@ const posts = [
     date: "June 2025",
     readTime: "15 min",
   },
+  {
+    slug: "/blog/resume-action-verbs-list",
+    title: "100+ Resume Action Verbs List (2026 Powerful Guide)",
+    excerpt: "Discover 100+ resume action verbs organized by skill category. Make your resume stand out with powerful action words that catch recruiters' attention.",
+    date: "June 2025",
+    readTime: "10 min",
+  },
+  {
+    slug: "/blog/resume-bullet-point-examples",
+    title: "Resume Bullet Points Examples: 50+ That Get You Hired",
+    excerpt: "Master resume bullet points with 50+ real examples. Learn to write achievement-focused bullet points that impress recruiters and beat ATS systems.",
+    date: "June 2025",
+    readTime: "12 min",
+  },
+  {
+    slug: "/blog/resume-format-examples",
+    title: "Resume Format Examples (2026 Complete Guide)",
+    excerpt: "Explore professional resume format examples for every industry. Learn which format works best for your experience level and job type.",
+    date: "June 2025",
+    readTime: "15 min",
+  },
 ];
 
 export default function BlogPage() {

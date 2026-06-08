@@ -121,6 +121,13 @@ const posts = [
     date: "June 2025",
     readTime: "16 min",
   },
+  {
+    slug: "/blog/resume-objectives-examples",
+    title: "Resume Objectives Examples (2026 Complete Guide)",
+    excerpt: "Learn when to use resume objectives and how to write effective ones. Examples for different experience levels and industries.",
+    date: "June 2025",
+    readTime: "15 min",
+  },
 ];
 
 export default function BlogPage() {

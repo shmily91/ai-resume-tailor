@@ -128,6 +128,27 @@ const posts = [
     date: "June 2025",
     readTime: "15 min",
   },
+  {
+    slug: "/blog/resume-keywords-list",
+    title: "Resume Keywords List (2026 Complete Guide)",
+    excerpt: "Master resume keywords to pass ATS and get more interviews. Complete list organized by industry and skill type with real examples.",
+    date: "June 2025",
+    readTime: "16 min",
+  },
+  {
+    slug: "/blog/resume-references-examples",
+    title: "Resume References Examples (2026 Complete Guide)",
+    excerpt: "Master resume references with real examples, templates, and best practices. Learn when to include references and how to format them professionally.",
+    date: "June 2025",
+    readTime: "14 min",
+  },
+  {
+    slug: "/blog/resume-volunteer-work",
+    title: "Resume Volunteer Work (2026 Complete Guide)",
+    excerpt: "How to effectively list volunteer work on your resume. Examples, formats, and strategies to showcase your community involvement and transferable skills.",
+    date: "June 2025",
+    readTime: "15 min",
+  },
 ];
 
 export default function BlogPage() {

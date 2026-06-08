@@ -107,6 +107,13 @@ const posts = [
     date: "June 2025",
     readTime: "14 min",
   },
+  {
+    slug: "/blog/how-to-list-skills-on-resume",
+    title: "How to List Skills on Resume (2026 Complete Guide)",
+    excerpt: "Learn how to list skills on your resume effectively. Categories to include, formatting tips, and ATS optimization.",
+    date: "June 2025",
+    readTime: "13 min",
+  },
 ];
 
 export default function BlogPage() {

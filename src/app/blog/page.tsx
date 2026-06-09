@@ -191,6 +191,27 @@ const posts = [
     date: "June 2026",
     readTime: "14 min",
   },
+  {
+    slug: "/blog/resume-summary-statement",
+    title: "Resume Summary Statement: Complete 2026 Guide with Examples",
+    excerpt: "Craft a powerful resume summary statement that gets interviews. Learn the 3-step formula, 20+ examples for every experience level, and what to avoid.",
+    date: "June 2026",
+    readTime: "8 min",
+  },
+  {
+    slug: "/blog/resume-career-goals",
+    title: "Resume Career Goals: How to Write Them (Examples for Every Stage)",
+    excerpt: "Learn to articulate your career goals effectively on your resume. Includes short-term vs. long-term goals, examples for freshers to executives, and how to align them with the job.",
+    date: "June 2026",
+    readTime: "10 min",
+  },
+  {
+    slug: "/blog/resume-email-address",
+    title: "Best Resume Email Address Format: Professional Examples & Tips",
+    excerpt: "Choose the right email address for your resume. Learn professional formats, what to avoid, and see 30+ examples that impress recruiters.",
+    date: "June 2026",
+    readTime: "7 min",
+  },
 ];
 
 export default function BlogPage() {

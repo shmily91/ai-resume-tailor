@@ -170,6 +170,27 @@ const posts = [
     date: "June 2025",
     readTime: "15 min",
   },
+  {
+    slug: "/blog/resume-achievements-examples",
+    title: "Resume Achievements Examples (2026 Complete Guide)",
+    excerpt: "Master resume achievements with 50+ real examples across industries. Learn to write accomplishment statements that get you hired.",
+    date: "June 2026",
+    readTime: "14 min",
+  },
+  {
+    slug: "/blog/technical-skills-resume",
+    title: "Technical Skills Resume (2026 Complete Guide)",
+    excerpt: "Master technical skills section on your resume. Learn which skills to include, how to format, and optimize for ATS. Real examples for every industry.",
+    date: "June 2026",
+    readTime: "15 min",
+  },
+  {
+    slug: "/blog/resume-certification-section",
+    title: "Resume Certification Section (2026 Complete Guide)",
+    excerpt: "Master resume certification section formatting. Learn which certifications to include, how to format, and maximize their impact on your resume.",
+    date: "June 2026",
+    readTime: "14 min",
+  },
 ];
 
 export default function BlogPage() {
